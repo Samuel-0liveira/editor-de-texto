@@ -45,7 +45,19 @@ namespace TextEditor
 
         static void NovoArquivo()
         {
+            Console.Clear();
 
+            Console.WriteLine("Digite o seu texto abaixo (esc para sair):");
+            Console.WriteLine("----------------------------------------------");
+            string texto = "";
+
+            do 
+            {
+                texto += Console.ReadLine();
+                texto += Environment.NewLine;
+            } while(Console.ReadKey().Key != ConsoleKey.Escape);
+
+            Console.WriteLine(texto);
         }
     }
 }
