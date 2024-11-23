@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.IO;
 
 namespace TextEditor
 {
@@ -58,6 +59,19 @@ namespace TextEditor
             } while(Console.ReadKey().Key != ConsoleKey.Escape);
 
             Console.WriteLine(texto);
+        }
+
+        static void Salvar(string texto)
+        {
+            Console.Clear();
+
+            Console.WriteLine("O arquivo deve ser salvo em qual caminho?");
+            var caminho = Console.ReadLine();
+
+            using(var arquivo = new StreamWriter(caminho!))
+            {
+                arquivo.Write(texto);
+            }
         }
     }
 }
